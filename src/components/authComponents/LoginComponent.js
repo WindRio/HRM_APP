@@ -54,6 +54,7 @@ export default function LoginComponents(props) {
             style={LoginStyle.background}
           >
             <>
+              {/* <Common.TimeLockModal/> */}
               <Common.LoadingModal
                 loader={loading}
               />

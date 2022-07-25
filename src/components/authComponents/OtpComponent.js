@@ -96,6 +96,7 @@ const OtpComponent = ({ navigation }) => {
               <Common.LoadingModal
                 loader={loading}
               />
+              <Common.TimeLockModal visible={OtpState.timeLock ? true : false && loading === false} time={OtpState.timeLock} />
               <Common.ModalNotification.SuccessModal
                 visible={OtpState.message ? true : false && loading === false}
                 title={OtpState.message}

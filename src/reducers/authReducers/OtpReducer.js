@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   isFetching: false,
   message: null,
   resend: null,
+  timeLock: null,
   isError: false,
   errorMessage: null,
   userToken: null,
@@ -27,6 +28,7 @@ export default function OtpReducer(state = INITIAL_STATE, { type, payload }) {
         isFetching: false,
         message: payload.message,
         resend: payload.resend,
+        timeLock: null,
         isError: false,
         errorMessage: null,
       }
@@ -37,6 +39,7 @@ export default function OtpReducer(state = INITIAL_STATE, { type, payload }) {
         message: null,
         resend: null,
         errorMessage: payload.message,
+        timeLock: payload.timeLock,
         isError: true,
       }
     case authTypes.CLEAR_NOTIFY_REQUEST:

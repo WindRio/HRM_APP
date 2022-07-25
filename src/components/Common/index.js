@@ -1,9 +1,10 @@
 import { ButtonCommon } from "./ButtonCommon";
 import * as Color from "./Color"
-import {InputCommon} from "./InputCommon"
+import { InputCommon } from "./InputCommon"
 import { LoadingModal } from "./LoadingModal";
 import * as ModalNotification from "./ModalNotification"
-import {BackButton} from "./BackButton"
+import { BackButton } from "./BackButton"
+import TimeLockModal from "./TimeLockModal"
 import * as Title from './Title'
 
 export {
@@ -13,5 +14,5 @@ export {
     LoadingModal,
     ModalNotification,
     BackButton,
-    Title
+    Title, TimeLockModal
 }

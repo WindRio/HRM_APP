@@ -55,8 +55,14 @@ function* Otp({ payload }) {
                 }))
             }
         } else {
-            throw {
-                message: "Sai mã OTP"
+            if (res.timeLock) {
+                throw {
+                    timeLock: res.timeLock
+                }
+            } else {
+                throw {
+                    message: "Sai mã OTP"
+                }
             }
         }
     } catch (error) {
