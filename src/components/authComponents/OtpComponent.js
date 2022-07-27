@@ -52,18 +52,15 @@ const OtpComponent = ({ navigation }) => {
     }
   }
   const {
-    OtpState,
-    ForgotState,
-    RegisterState,
-    LoginState,
+    AuthenStore,
     handleOtp,
     handleNotify
   } = useAuth()
   const [countdown, setCountdown] = useState(5)
 
   useEffect(() => {
-    if (LoginState.timeOtp || ForgotState.timeOtp || RegisterState.timeOtp) {
-      setCountdown(LoginState.timeOtp || ForgotState.timeOtp || RegisterState.timeOtp)
+    if (AuthenStore.timeOtp) {
+      setCountdown(AuthenStore.timeOtp)
     }
   }, [])
   useEffect(() => {
@@ -96,19 +93,19 @@ const OtpComponent = ({ navigation }) => {
               <Common.LoadingModal
                 loader={loading}
               />
-              <Common.TimeLockModal visible={OtpState.timeLock ? true : false && loading === false} time={OtpState.timeLock} />
+              <Common.TimeLockModal visible={AuthenStore.timeLock ? true : false && loading === false} time={AuthenStore.timeLock} />
               <Common.ModalNotification.SuccessModal
-                visible={OtpState.message ? true : false && loading === false}
-                title={OtpState.message}
+                visible={AuthenStore.message ? true : false && loading === false}
+                title={AuthenStore.message}
                 onPress={() => {
-                  OtpState.resend ? handleNotify() :
+                  AuthenStore.resend ? handleNotify() :
                     handleNotify()
                   navigation.navigate('Login')
                 }}
               />
               <Common.ModalNotification.FailModal
-                visible={(OtpState.errorMessage ? true : false && loading === false)}
-                title={OtpState.errorMessage}
+                visible={(AuthenStore.errorMessage ? true : false && loading === false)}
+                title={AuthenStore.errorMessage}
                 onPress={() => {
                   handleNotify()
                 }} />

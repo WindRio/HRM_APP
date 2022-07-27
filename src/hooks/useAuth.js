@@ -8,6 +8,7 @@ export const useAuth = () => {
     const ForgotState = useSelector(state => state.forgot)
     const OtpState = useSelector(state => state.otp)
     const ChangePasswordState = useSelector(state => state.changePassword)
+    const AuthenStore = useSelector(state => state.authenStore)
 
     const handleLogin = ({ email, password }) => {
         dispatch(authActions.LoginAction.LoginRequest({ email, password }))
@@ -39,7 +40,7 @@ export const useAuth = () => {
         RegisterState,
         LoginState,
         ChangePasswordState,
-        OtpState,
+        OtpState, AuthenStore,
         handleLogin,
         handleRegister,
         handleForgot,

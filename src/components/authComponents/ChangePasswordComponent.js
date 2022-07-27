@@ -13,7 +13,7 @@ export default function ChangePassComponent(props) {
     const [loading, setLoading] = useState(false);
     const { navigation } = props;
     const {
-        ChangePasswordState,
+        AuthenStore,
         handleChangePassword,
         handleNotify
     } = useAuth();
@@ -29,16 +29,16 @@ export default function ChangePassComponent(props) {
                             loader={loading}
                         />
                         <Common.ModalNotification.SuccessModal
-                            visible={ChangePasswordState.message ? true : false && loading === false}
-                            title={ChangePasswordState.message}
+                            visible={AuthenStore.message ? true : false && loading === false}
+                            title={AuthenStore.message}
                             onPress={() => {
                                 navigation.navigate('Login')
                                 handleNotify()
                             }}
                         />
                         <Common.ModalNotification.FailModal
-                            visible={(ChangePasswordState.errorMessage ? true : false && loading === false)}
-                            title={ChangePasswordState.errorMessage}
+                            visible={(AuthenStore.errorMessage ? true : false && loading === false)}
+                            title={AuthenStore.errorMessage}
                             onPress={() => {
                                 handleNotify()
                             }} />

@@ -18,7 +18,7 @@ const ForgotPassword = (props) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
-  const { ForgotState, handleForgot, handleNotify } = useAuth();
+  const { AuthenStore, handleForgot, handleNotify } = useAuth();
   const handlePress = () => {
     if (email && verifyEmail(email)) {
       handleForgot({ screen: "ForgotPassword", email });
@@ -44,16 +44,16 @@ const ForgotPassword = (props) => {
                 loader={loading}
               />
               <Common.ModalNotification.SuccessModal
-                visible={ForgotState.message ? true : false && loading}
-                title={ForgotState.message}
+                visible={AuthenStore.message ? true : false && loading}
+                title={AuthenStore.message}
                 onPress={() => {
                   handleNotify();
                   navigation.navigate("Otp");
                 }}
               />
               <Common.ModalNotification.FailModal
-                visible={ForgotState.errorMessage ? true : false && loading}
-                title={ForgotState.errorMessage}
+                visible={AuthenStore.errorMessage ? true : false && loading}
+                title={AuthenStore.errorMessage}
                 onPress={() => {
                   handleNotify();
                 }}

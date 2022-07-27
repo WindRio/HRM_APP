@@ -10,7 +10,7 @@ const { getStore } = utils.Storage;
 
 export default function LoginComponents(props) {
   const {
-    LoginState,
+    AuthenStore,
     handleNotify,
     handleValidateToken,
     handleLogin
@@ -59,16 +59,16 @@ export default function LoginComponents(props) {
                 loader={loading}
               />
               <Common.ModalNotification.SuccessModal
-                visible={LoginState.message ? true : false && loading === false}
-                title={LoginState.message}
+                visible={AuthenStore.message ? true : false && loading === false}
+                title={AuthenStore.message}
                 onPress={() => {
                   handleNotify()
                   navigation.navigate("Otp")
                 }}
               />
               <Common.ModalNotification.FailModal
-                visible={(LoginState.errorMessage ? true : false && loading === false)}
-                title={LoginState.errorMessage}
+                visible={(AuthenStore.errorMessage ? true : false && loading === false)}
+                title={AuthenStore.errorMessage}
                 onPress={() => {
                   handleNotify()
                 }} />

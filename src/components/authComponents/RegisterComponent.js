@@ -20,7 +20,7 @@ export default function RegisterComponent(props) {
     const [scroll, setScroll] = useState(false);
     const { navigation } = props;
     const {
-        RegisterState,
+        AuthenStore,
         handleRegister,
         handleNotify,
     } = useAuth();
@@ -67,16 +67,16 @@ export default function RegisterComponent(props) {
                                 loader={loading}
                             />
                             <Common.ModalNotification.SuccessModal
-                                visible={RegisterState.message ? true : false && loading === false}
-                                title={RegisterState.message}
+                                visible={AuthenStore.message ? true : false && loading === false}
+                                title={AuthenStore.message}
                                 onPress={() => {
                                     navigation.navigate('Otp')
                                     handleNotify()
                                 }}
                             />
                             <Common.ModalNotification.FailModal
-                                visible={(RegisterState.errorMessage ? true : false && loading === false)}
-                                title={RegisterState.errorMessage}
+                                visible={(AuthenStore.errorMessage ? true : false && loading === false)}
+                                title={AuthenStore.errorMessage}
                                 onPress={() => {
                                     handleNotify()
                                 }} />
